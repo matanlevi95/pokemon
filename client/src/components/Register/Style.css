@@ -1,0 +1,16 @@
+.RegisterDiv {
+    width: 500px;
+    left: 35%;
+    position: relative;
+    border: solid black 2px;
+    border-radius: 100%;
+    top: 50px;
+    background: url("http://www.cedricat.cat/pics/b/7/71501_pokemon-background-pokeball.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.coin{
+    font-family: "Courier New", Courier, monospace;
+    font-size: 20px;
+}
