@@ -5,7 +5,6 @@ import { connect } from "react-redux"
 import { login, logout } from "../../redux/actions"
 import "./Style.css"
 import { Tooltip } from "@material-ui/core"
-import { red } from '@material-ui/core/colors';
 
 class Navbar extends Component<any, any> {
     state = {
@@ -24,7 +23,10 @@ class Navbar extends Component<any, any> {
     }
 
     render() {
-        const { redirect, coins, level, stamina, exp } = this.props
+        const state = JSON.parse(localStorage.getItem("state") || "")
+        console.log(state);
+
+        const { redirect, coins, level, stamina, exp } = state
         if (redirect) {
             return (
 
@@ -59,7 +61,6 @@ class Navbar extends Component<any, any> {
                                 </li>
 
                             </ul>
-                            <form className="form-inline my-2 my-lg-0">
                                 <span> <img height="30px" width="30px" src="https://icon-library.net/images/lightning-icon-png/lightning-icon-png-4.jpg" alt="" /> {stamina.currentStamina}/{stamina.maxStamina} </span>
                                 <Tooltip style={{ color: "red" }}
                                     title={`${exp.currentExp}/${exp.maxExp}`} arrow>
@@ -71,7 +72,6 @@ class Navbar extends Component<any, any> {
                                     const { logout } = this.props.actions
                                     logout()
                                 }}>Logout</button>
-                            </form>
                         </div>
                     </nav>
                 </div >
@@ -107,8 +107,8 @@ class Navbar extends Component<any, any> {
 
 const mapStateToProps = (state: any) => {
     const { userLoginDetails } = state
-    const { redirect, coins, level, stamina, exp } = userLoginDetails
-    return { redirect, coins, level, stamina, exp }
+
+    return { userLoginDetails }
 }
 const mapDispatchToProps = (dispatch: any) => {
     return {

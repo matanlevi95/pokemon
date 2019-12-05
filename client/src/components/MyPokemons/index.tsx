@@ -21,8 +21,9 @@ class MyPokemons extends React.Component<any, any> {
 }
 
 const mapStateToProps = (state: any) => {
-
     const { pokemons } = state.userLoginDetails
+console.log(pokemons);
+
     return {
         pokemons
     }
