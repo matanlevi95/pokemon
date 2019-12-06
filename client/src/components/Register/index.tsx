@@ -54,7 +54,7 @@ class Register extends React.Component<any, any> {
                     <span> <img height="100" width="150" src="https://projectpokemon.org/home/uploads/monthly_2019_06/large.charmander.png.23f59a100b425bb78d79995e290b0da3.png" alt="File not found" /></span>
                     <input type="radio" value="charmander" onClick={this.handleCheck} name="pokemon" />
                     <span><img height="100" width="150" src="https://projectpokemon.org/home/uploads/monthly_2019_06/large.bulbasaur.png.f765693a113acd1e064ab4eb8bf10f6f.png" alt="File not found" /></span>
-                    <input type="radio" name="pokemon" onClick={this.handleCheck} value="bulbazaur" />
+                    <input type="radio" name="pokemon" onClick={this.handleCheck} value="bulbasaur" />
                 </div>
                 <br />
                 <button style={{ margin: "10px" }} onClick={this.handleRegister} type="button" className="btn btn-danger">Get Started</button>

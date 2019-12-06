@@ -24,14 +24,13 @@ class Navbar extends Component<any, any> {
 
     render() {
         const state = JSON.parse(localStorage.getItem("state") || "")
-        console.log(state);
 
         const { redirect, coins, level, stamina, exp } = state
         if (redirect) {
             return (
 
                 <div>
-                    <nav className="navbar navbar-expand-lg navbar-danger bg-danger">
+                    <nav className="navbar navbar-expand-lg navbar-danger" style={{ background: "#c7ecee" }}>
                         <span className="navbar-brand"><img height="40px" width="100px" src="http://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png" alt="" /></span>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <img height="40px" width="40px" src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png" alt="" />
@@ -39,39 +38,40 @@ class Navbar extends Component<any, any> {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item">
-                                    <button className="btn btn-danger"><Link style={{ color: "white" }} to="/">Home</Link></button>
+                                    <button className="btn "><Link style={{ color: "#2d3436" }} to="/">Home</Link></button>
                                 </li>
                                 <li className="nav-item dropdown">
-                                    <button className=" btn btn-danger" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button className=" btn" style={{ color: "#2d3436" }} id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Items </button>
-                                    <div className="dropdown-menu" style={{ background: "#dc3545" }} aria-labelledby="navbarDropdown">
-                                        <button className=" btn btn-danger" ><Link style={{ color: "white" }} to="/items/pokeballs">Pokeballs</Link></button>
-                                        <div className="dropdown-divider"></div>
-                                        <button className=" btn btn-danger"><Link style={{ color: "white" }} to="/items/materials">Materials</Link></button>
+                                    <div className="dropdown-menu" style={{ background: "#c7ecee", position: "absolute", border: "none" }} aria-labelledby="navbarDropdown">
+                                        <button className="btn "><Link style={{ color: "#2d3436" }} to="/items/pokeballs">Pokeballs</Link></button>
+                                        <button className="btn "><Link style={{ color: "#2d3436" }} to="/items/materials">Materials</Link></button>
                                     </div>
                                 </li>
                                 <li className="nav-item">
-                                    <button className="btn btn-danger"><Link style={{ color: "white" }} to="/myPokemons">My Pokemons</Link></button>
+                                    <button className="btn "><Link style={{ color: "#2d3436" }} to="/myPokemons">My Pokemons</Link></button>
                                 </li>
                                 <li className="nav-item">
-                                    <button className="btn btn-danger"><Link style={{ color: "white" }} to="/pokedex">Pokedex</Link></button>
+                                    <button className="btn "><Link style={{ color: "#2d3436" }} to="/pokedex">Pokedex</Link></button>
                                 </li>
                                 <li className="nav-item">
-                                    <button className="btn btn-danger"><Link style={{ color: "white" }} to="/shop">Shop</Link></button>
+                                    <button className="btn "><Link style={{ color: "#2d3436" }} to="/shop">Shop</Link></button>
                                 </li>
 
                             </ul>
-                                <span> <img height="30px" width="30px" src="https://icon-library.net/images/lightning-icon-png/lightning-icon-png-4.jpg" alt="" /> {stamina.currentStamina}/{stamina.maxStamina} </span>
-                                <Tooltip style={{ color: "red" }}
-                                    title={`${exp.currentExp}/${exp.maxExp}`} arrow>
+                            <img height="30px" width="30px" src="https://icon-library.net/images/lightning-icon-png/lightning-icon-png-4.jpg" alt="" />
+                            <span>  {stamina.currentStamina}/{stamina.maxStamina} </span>
+                            <Tooltip style={{ color: "red" }}
+                                title={`${exp.currentExp}/${exp.maxExp}`} arrow>
 
-                                    <span style={{ marginRight: "15px", marginLeft: "15px" }}> Level : {level}</span>
-                                </Tooltip>
-                                <span className="coin"><img height="30px" width="30px" src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/512/coin-us-dollar-icon.png" alt="" />{` X${coins} `}</span>
-                                <button type="button" className="btn btn-danger" style={{ color: "white", marginLeft: "20px" }} onClick={() => {
-                                    const { logout } = this.props.actions
-                                    logout()
-                                }}>Logout</button>
+                                <span style={{ marginRight: "15px", marginLeft: "15px", paddingLeft: "10px", borderLeft: "1px solid black" }}> Level {level}</span>
+                            </Tooltip>
+                            <img style={{ borderLeft: "1px black solid", paddingLeft: "10px" }} height="23px" width="27px" src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/512/coin-us-dollar-icon.png" alt="" />
+                            <span style={{ marginLeft: "5px" }}>{` X${coins} `}</span>
+                            <button type="button" className="btn " style={{ color: "#2d3436", border: "1px solid black", marginLeft: "20px" }} onClick={() => {
+                                const { logout } = this.props.actions
+                                logout()
+                            }}>Logout</button>
                         </div>
                     </nav>
                 </div >
@@ -81,7 +81,7 @@ class Navbar extends Component<any, any> {
         else {
             return (
                 <div>
-                    <nav className="navbar navbar-expand-lg navbar-danger bg-danger">
+                    <nav className="navbar navbar-expand-lg navbar-danger" style={{ background: "#c7ecee" }}>
                         <span className=""><img height="40px" width="100px" src="http://pluspng.com/img-png/pokemon-logo-png-pokemon-logo-png-2000.png" alt="" /></span>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <img height="40px" width="40px" src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png" alt="" />
@@ -93,8 +93,8 @@ class Navbar extends Component<any, any> {
                             <form className="form-inline my-2 my-lg-0">
                                 <input className="form-control mr-sm-2" type="text" name="username" onChange={this.handleChange} placeholder="Username" aria-label="Username" />
                                 <input className="form-control mr-sm-2" type="password" name="password" onChange={this.handleChange} placeholder="Password" aria-label="Search" />
-                                <button className="btn btn-danger" onClick={this.handleLogin} type="button">Login</button>
-                                <button className="btn btn-danger"><Link style={{ color: "white" }} to="/register">Dont have an account?</Link></button>
+                                <button className="btn" style={{ background: "#2d3436", color: "#f1f1f1", border: "1px" }} onClick={this.handleLogin} type="button">Login</button>
+                                <button className="btn "><Link style={{ color: "#2d3436" }} to="/register">Dont have an account?</Link></button>
                             </form>
                         </div>
                     </nav>

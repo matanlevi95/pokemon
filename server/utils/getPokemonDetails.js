@@ -9,17 +9,20 @@ async function getPokemonDetails(pokemon) {
         const { stats, sprites, types, species } = data
         const { back_default: back, front_default: front } = sprites
         const pokemonStatsDetails = {}
-
+        const array = ["speed", "specialDefense", "specialAttack", "defense", "attack", "hp"]
         const pokemonImages = { back, front }
+        let counter = 0
         stats.map(s => {
             const { stat, base_stat } = s
-            const { name } = stat
-            pokemonStatsDetails[name] = base_stat
+            pokemonStatsDetails[array[counter]] = base_stat
+            counter++
         })
         const pokemonsTypes = types.map(t => {
             return t.type.name
         })
         const pokemonRelevantInfo = { name: species.name, level: 1, exp: { currentExp: 0, maxExp: 50 }, stats: pokemonStatsDetails, pokemonImages, pokemonsTypes }
+        console.log(pokemonRelevantInfo);
+
         return pokemonRelevantInfo
     }
     catch (err) {
@@ -27,4 +30,5 @@ async function getPokemonDetails(pokemon) {
 
     }
 }
+getPokemonDetails("ditto")
 module.exports = getPokemonDetails
